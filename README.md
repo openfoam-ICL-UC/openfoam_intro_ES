@@ -6,9 +6,9 @@ Taller Introducción a OpenFOAM para Ingeniería Química. Los ejemplos son rele
 
 Los siguientes conocimientos previos facilitarán de enorme manera tu ruta de aprendizaje. Sin embargo, estos no son requisitos absolutos y se pueden aprender en la marcha
 
-* Dominio básico de la consola `Unix`
-* Fundamentos básicos de métodos numéricos
+* Dominio básico de la consola `Unix`: Si usted quiere aprender lo básico, le recomendamos este curso de Software Carpentry de tres horas en español: [La Terminal de Unix](https://swcarpentry.github.io/shell-novice-es/)
 * Fenómenos de Transporte o Mecánica de Fluidos + Transferencia de Calor/Masa a nivel de pregrado
+* Fundamentos básicos de métodos numéricos: Si usted quiere aprender algoritmos básicos para resolver problemas a los valores iniciales, de contorno y de valores iniciales y de contorno en el contexto de Fenómenos de Transporte, le recomendamos el MOOC gratuito [Transferencia de calor, masa y momentum computacional]
 
 #### Requerimientos computacionales
 Los siguientes requerimientos computacionales son **absolutamente necesarios** para iniciar el taller.
