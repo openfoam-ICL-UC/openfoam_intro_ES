@@ -19,10 +19,24 @@ Al iniciar el taller, es necesario instalar los siguientes software:
 * Si su OS es Linux, no es necesario instalar máquinas virtuales:
 * ParaView > 5.0: Se debe instalar en Windows Subsystem for Linux o Linux: [Instrucciones de instalación]()
 
-Este taller tiene dos partes. Los objetivos de aprendizaje de este taller son:
+Este taller tiene dos sesiones con dos partes cada una. Los objetivos de aprendizaje de cada parte de este taller son:
 
-#### Parte 1: Introducción al método de volúmenes finitos en OpenFOAM
+#### Sesión 1 Parte 1: Introducción al método de volúmenes finitos
+1. Convertir un modelo matemático continuo a un modelo numérico discreto.
+2. Discretizar ecuaciones diferenciales parciales mediante el método de volúmenes finitos.
+3. Comparar algoritmos de solución de sistemas de ecuaciones lineales.
 
+#### Sesión 1, Parte 2: Implementación de la solución numérica a un problema de fenómenos de transporte en OpenFOAM
+1. Configurar un caso de OpenFOAM representativo de la transferencia de calor tridimensional no estacionaria en un sistema de flujo de fluidos.
+2. Ejecutar un `solver` de OpenFOAM desde la línea de comando.
+3. Visualizar los resultados de la simulación utilizando paraview.
 
-#### Parte 2: Implementación de un problema de transferencia de masa en un medio no reaccionante 3-D en estado no estacionario
+#### Sesión 2, Parte 1: Post-procesamiento de resultados en OpenFOAM
+1. Escribir un código `functionObject` para calcular cantidades de interés ingenieril.
+2. Generar figuras explicativas de fenómenos de transporte relevantes a partir de filtros de Paraview. 
+3. Comparar los resultados del modelo de OpenFOAM con los resultados obtenidos en Python.
 
+#### Sesión 2, Parte 2: Ejemplos y solvers avanzados de OpenFOAM para fenómenos de transporte acoplados
+1. Analizar un caso de convección natural con y sin la aproximación de Boussinesq.
+2. Analizar un caso de transferencia de calor y masa multifásico.
+3. Diseñar un plan de estudio y aprendizaje autónomo basado a sus necesidades de aprendizaje.
