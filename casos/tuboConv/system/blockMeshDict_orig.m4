@@ -30,16 +30,16 @@ define(bottomQuad, ($1b $2b $3b $4b))
 convertToMeters 0.001;
 
 // Inner square side half
-define(s, 0.5)
+define(s, 0.35)
 
 // Inner square side curvature
-define(sc, 0.6)
+define(sc, 0.4)
 
 // cylinder radius
-define(r, 1)
+define(r, 0.7)
 
 // Height of cylinder
-define(z, 20)
+define(z, 2.0)
 
 // Base z
 define(Zb, 0)
@@ -48,13 +48,13 @@ define(Zb, 0)
 define(Zt, calc(Zb + z))
 
 // Number of cells at inner square
-define(Ns, 10)
+define(Ns, 20)
 
 // Number of cells between inner square and circle
-define(Ni, 5)
+define(Ni, 10)
 
 // Number of cells in the cylinder height
-define(Nz, 200)
+define(Nz, 50)
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

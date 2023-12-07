@@ -1,7 +1,7 @@
 /*--------------------------------*- C++ -*----------------------------------*\
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  v2006                                 |
+|  \\    /   O peration     | Version:  v2306                                 |
 |   \\  /    A nd           | Website:  www.openfoam.com                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
@@ -9,35 +9,20 @@ FoamFile
 {
     version     2.0;
     format      ascii;
-    class       volVectorField;
-    object      U;
+    class       dictionary;
+    object      decomposeParDict;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [0 1 -1 0 0 0 0];
+numberOfSubdomains 8;
 
-internalField   uniform (0 0 0.1);
+method          simple;
 
-boundaryField
+coeffs
 {
-    inlet
-    {
-        // La velocidad de entrada es 1 m/s
-        type            fixedValue;
-        value           uniform (0 0 0.1);
-    }
-
-    outlet
-    {
-        // Una salida de flujo libre es equivalente a una condición
-        // de borde de gradiente de velocidad nulo
-        type            zeroGradient;
-    }
-
-    walls
-    {
-        type            noSlip;
-    }
+    n           (2 2 2);
 }
 
+
 // ************************************************************************* //
+                                                                                            

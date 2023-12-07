@@ -31,8 +31,45 @@ boundaryField
     }
     walls
     {
-        type            fixedValue;
-        value           uniform 298.15;
+        //type            banana;
+        //value           uniform 298.15;
+        type            codedMixed;
+        refValue        uniform 0;
+        refGradient     uniform 0;
+        valueFraction   uniform 1;
+
+        name    robin;   // name of generated BC
+
+        codeInclude
+        #{
+           // #include "fluidThermo.H";
+        #};
+        
+        code
+        #{
+            // Accedemos a la malla para obtener el espaciamiento de la pared
+            const fvMesh& mesh = patch().boundaryMesh().mesh();
+            
+            // deltaCoeffs = 1 / delta_r es necesario para la condición de borde de BC
+            const scalarField& deltaCoeffs = patch().deltaCoeffs();
+
+            // Effective thermal conductivity / W m^-2 K^-1
+            const scalar k_eff = 0.598;
+            
+            // Difusividad térmica turbulenta
+            const volScalarField& alphat = this->db().objectRegistry::lookupObject<volScalarField>("alphat");
+
+            // 
+            const volScalarField& rho = this->db().objectRegistry::lookupObject<volScalarField>("rho");
+
+            // Convection coefficient 
+            const scalar h = 10;   
+
+            this->refValue() = 298.15;
+            this->refGrad() = 0;
+            
+            this->valueFraction() = 1.0/(1.0 + k_eff/(h*(1/deltaCoeffs)) ); // Robin BC
+        #};
     }
 }
 

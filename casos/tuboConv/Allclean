@@ -3,7 +3,8 @@ cd "${0%/*}" || exit                                # Run from this directory
 . ${WM_PROJECT_DIR:?}/bin/tools/CleanFunctions      # Tutorial clean functions
 #------------------------------------------------------------------------------
 
-cleanCase
-rm -f 0/T
+rm -r [0-9].*
+rm -r [1-9]*
+rm -r proc*
 
 #------------------------------------------------------------------------------

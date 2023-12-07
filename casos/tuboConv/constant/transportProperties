@@ -21,10 +21,10 @@ transportModel Newtonian;
 nu              1e-05;
 
 // Thermal expansion coefficient
-beta            3e-03;
+beta            0;
 
 // Reference temperature
-TRef            300;
+TRef            273.5;
 
 // Laminar Prandtl number
 Pr              0.7;
