@@ -27,7 +27,7 @@ FoamFile
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-convertToMeters 1;
+convertToMeters 0.001;
 
 // Inner square side half
 

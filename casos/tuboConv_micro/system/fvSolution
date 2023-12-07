@@ -9,35 +9,60 @@ FoamFile
 {
     version     2.0;
     format      ascii;
-    class       volScalarField;
-    location    "0";
-    object      alphat;
+    class       dictionary;
+    location    "system";
+    object      fvSolution;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [0 2 -1 0 0 0 0];
-
-internalField   uniform 0;
-
-boundaryField
+solvers
 {
-    inlet
+    p_rgh
     {
-        type            calculated;
-        value           uniform 0;
+        solver          PCG;
+        preconditioner  DIC;
+        tolerance       1e-8;
+        relTol          0.01;
     }
-    outlet
+
+    p_rghFinal
     {
-        type            calculated;
-        value           uniform 0;
+        $p_rgh;
+        relTol          0;
     }
-    walls
+
+    "(U|T|k|epsilon|R)"
     {
-        type            alphatJayatillekeWallFunction;
-        Prt             0.85;
-        value           uniform 0;
+        solver          PBiCGStab;
+        preconditioner  DILU;
+        tolerance       1e-6;
+        relTol          0.1;
+    }
+
+    "(U|T|k|epsilon|R)Final"
+    {
+        $U;
+        relTol          0;
     }
 }
 
+PIMPLE
+{
+    momentumPredictor no;
+    nOuterCorrectors 1;
+    nCorrectors     2;
+    nNonOrthogonalCorrectors 0;
+    pRefCell        0;
+    pRefValue       0;
+}
+
+relaxationFactors
+{
+    equations
+    {
+        "(U|T|k|epsilon|R)" 1;
+        "(U|T|k|epsilon|R)Final" 1;
+    }
+}
 
 // ************************************************************************* //

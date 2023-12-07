@@ -1,0 +1,18 @@
+### Ignore OpenFOAM files created at runtime ###
+# Ignore dynamicCode as it depends on the coputer architecture 
+*dynamicCode/
+# Ignore mesh files as they should be created using update_mesh or similar
+*polyMesh/
+*.msh
+# Ignore postProcessing folder and .dat files
+*postProcessing/
+*.dat
+# Ignore simulated time steps
+[1-9]*0/
+[1-9]*/
+0.*
+processor*/
+# Do not ignore initial and boundary conditions
+!0/
+# Ignore simulation logs
+*.log
