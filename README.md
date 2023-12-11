@@ -40,3 +40,7 @@ Este taller tiene dos sesiones con dos partes cada una. Los objetivos de aprendi
 1. Analizar un caso de convección natural con y sin la aproximación de Boussinesq.
 2. Analizar un caso de transferencia de calor y masa multifásico.
 3. Diseñar un plan de estudio y aprendizaje autónomo basado a sus necesidades de aprendizaje.
+
+## Autores:
+Catalina Pino Muñoz, Research Associate, Earth Science and Engineering Department, Imperial College London
+Felipe Huerta, Profesor, Departamento de Ingeniería Química y Bioprocesos, Pontificia Universidad Católica de Chile
