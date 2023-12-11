@@ -43,4 +43,5 @@ Este taller tiene dos sesiones con dos partes cada una. Los objetivos de aprendi
 
 ## Autores:
 Catalina Pino Muñoz, Research Associate, Earth Science and Engineering Department, Imperial College London
+
 Felipe Huerta, Profesor, Departamento de Ingeniería Química y Bioprocesos, Pontificia Universidad Católica de Chile
