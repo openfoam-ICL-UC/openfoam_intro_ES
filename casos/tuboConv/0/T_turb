@@ -31,6 +31,8 @@ boundaryField
     }
     walls
     {
+        //type            banana;
+        //value           uniform 298.15;
         type            codedMixed;
         refValue        uniform 0;
         refGradient     uniform 0;
@@ -47,29 +49,40 @@ boundaryField
         #{
             // Accedemos a la malla para obtener el espaciamiento de la pared
             const fvMesh& mesh = patch().boundaryMesh().mesh();
-
-            // Accedemos al diccionario con las propiedades termofísicas
-            const auto transport = this->db().objectRegistry::lookupObject<IOdictionary>("transportProperties");
             
             // deltaCoeffs = 1 / delta_r es necesario para la condición de borde de BC
             const scalarField& deltaCoeffs = patch().deltaCoeffs();
 
-            // Lectura de propiedades desde el diccionario constant/transportProperties
-
-            // Conductividad térmica
-            scalar k = readScalar(transport.lookup("k"));
-
-            // Coeficiente de transferencia de calor por convección
-            scalar h = readScalar(transport.lookup("h"));
-
-            // Temperatura ambiente
-            scalar T_inf = readScalar(transport.lookup("T_inf"));
+            // Effective thermal conductivity / W m^-2 K^-1
+            // const scalar k_eff = 0.598;
             
-           // Temperatura de referencia
-            this->refValue() = T_inf;
+            // Liquid density / kg / m^3
+            const scalar rho = 1000; 
+
+            // Specific heat capacity / J / kg / K
+            const scalar cp = 4180;
+
+            // Effective thermal conductivity
+            const volScalarField& alphaEff = this->db().objectRegistry::lookupObject<volScalarField>("alphaEff");
+            
+            const volScalarField& alphaEff = this->db().objectRegistry::lookupObject<volScalarField>("alphaEff");
+
+
+            // Calculate effective thermal conductivity
+            const volScalarField k_eff = alphaEff * rho * cp;
+
+            Info << "Effective thermal diffusivity " << alphaEff << endl;
+
+            Info << "Effective thermal conductivity " << k_eff << endl;
+            // const volScalarField& rho = this->db().objectRegistry::lookupObject<volScalarField>("rho");
+
+            // Convection coefficient 
+            const scalar h = 10;   
+
+            this->refValue() = 298.15;
             this->refGrad() = 0;
             
-            this->valueFraction() = 1.0/(1.0 + k/(h*(1/deltaCoeffs)) ); // Robin BC
+            this->valueFraction() = 1.0/(1.0 + k_eff/(h*(1/deltaCoeffs)) ); // Robin BC
         #};
     }
 }

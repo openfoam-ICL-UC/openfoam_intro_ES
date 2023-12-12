@@ -31,6 +31,8 @@ boundaryField
     }
     walls
     {
+        //type            banana;
+        //value           uniform 298.15;
         type            codedMixed;
         refValue        uniform 0;
         refGradient     uniform 0;
@@ -65,7 +67,7 @@ boundaryField
             // Temperatura ambiente
             scalar T_inf = readScalar(transport.lookup("T_inf"));
             
-           // Temperatura de referencia
+    |       // Temperatura de referencia
             this->refValue() = T_inf;
             this->refGrad() = 0;
             
