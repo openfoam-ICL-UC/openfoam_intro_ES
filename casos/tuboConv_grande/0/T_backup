@@ -1,0 +1,79 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2006                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    object      T;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 0 0 1 0 0 0];
+
+internalField   uniform 277.5;
+
+boundaryField
+{
+    inlet
+    {
+        type            fixedValue;
+        value           uniform 277.5;
+    }
+    outlet
+    {
+        type            zeroGradient;
+    }
+    walls
+    {
+        //type            banana;
+        //value           uniform 298.15;
+        type            codedMixed;
+        refValue        uniform 0;
+        refGradient     uniform 0;
+        valueFraction   uniform 1;
+
+        name    robin;   // name of generated BC
+
+        codeInclude
+        #{
+           // #include "fluidThermo.H";
+        #};
+        
+        code
+        #{
+            // Accedemos a la malla para obtener el espaciamiento de la pared
+            const fvMesh& mesh = patch().boundaryMesh().mesh();
+
+            // Accedemos al diccionario con las propiedades termofísicas
+            const auto transport = this->db().objectRegistry::lookupObject<IOdictionary>("transportProperties");
+            
+            // deltaCoeffs = 1 / delta_r es necesario para la condición de borde de BC
+            const scalarField& deltaCoeffs = patch().deltaCoeffs();
+
+            // Lectura de propiedades desde el diccionario constant/transportProperties
+
+            // Conductividad térmica
+            scalar k = readScalar(transport.lookup("k"));
+
+            // Coeficiente de transferencia de calor por convección
+            scalar h = readScalar(transport.lookup("h"));
+
+            // Temperatura ambiente
+            scalar T_inf = readScalar(transport.lookup("T_inf"));
+            
+    |       // Temperatura de referencia
+            this->refValue() = T_inf;
+            this->refGrad() = 0;
+            
+            this->valueFraction() = 1.0/(1.0 + k/(h*(1/deltaCoeffs)) ); // Robin BC
+        #};
+    }
+}
+
+// ************************************************************************* //
