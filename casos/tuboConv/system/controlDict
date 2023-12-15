@@ -23,13 +23,13 @@ startTime       0;
 
 stopAt          endTime;
 
-endTime         5e-1;
+endTime         2e-3;
 
 deltaT          1e-5;
 
 writeControl    adjustableRunTime;
 
-writeInterval   1e-2;
+writeInterval   1e-3;
 
 purgeWrite      0;
 
@@ -48,5 +48,42 @@ runTimeModifiable true;
 adjustTimeStep  yes;
 
 maxCo           0.75;
+
+functions
+{
+    gradT
+    {
+        // Mandatory entries (unmodifiable)
+        type            grad;
+        libs            (fieldFunctionObjects);
+
+        // Mandatory (inherited) entries (runtime modifiable)
+        field           T;
+
+        // Optional (inherited) entries
+        result          gradT;
+        region          region0;
+        writeControl    writeTime;
+    }
+
+    avgT
+    {
+        type            surfaceFieldValue;
+        libs            (fieldFunctionObjects);
+        writeControl    writeTime;
+        log             yes;
+        writeFields     no;
+        regionType      patch;
+        name            walls;
+        operation       areaNormalIntegrate;
+        // weightField     phi;
+
+        fields
+        (
+            gradT
+        );
+    }
+}
+
 
 // ************************************************************************* //
