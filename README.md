@@ -15,8 +15,9 @@ Los siguientes requerimientos computacionales son **absolutamente necesarios** p
 Al iniciar el taller, es necesario instalar los siguientes software:
 
 * OpenFOAM v2306: [Instrucciones de instalación]()
-* Si su OS es Windows, Windows Subsystem for Linux 2 (WSL 2): [Instrucciones de instalación]()
-* Si su OS es Linux, no es necesario instalar máquinas virtuales:
+* Si su OS es Windows, Windows Subsystem for Linux 2 (WSL 2): [Instrucciones de instalación](https://github.com/openfoam-ICL-UC/openfoam_intro_ES/wiki/Instalaci%C3%B3n-de-OpenFOAM)
+* Si su OS es Mac OS X, versión pre-compilada de OpenFOAM en Docker container: [Instrucciones de instalación](https://www.openfoam.com/download/openfoam-installation-on-mac-using-docker)
+* Si su OS es Linux, no es necesario instalar máquinas virtuales.
 * ParaView > 5.0: Se debe instalar en Windows Subsystem for Linux o Linux: [Instrucciones de instalación]()
 
 Este taller tiene dos sesiones con dos partes cada una. Los objetivos de aprendizaje de cada parte de este taller son:
