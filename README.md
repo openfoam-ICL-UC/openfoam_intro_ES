@@ -16,16 +16,16 @@ Al iniciar el taller, es necesario instalar los siguientes software:
 
 * OpenFOAM v2306: [Instrucciones de instalación]()
 * Si su OS es Windows, Windows Subsystem for Linux 2 (WSL 2): [Instrucciones de instalación](https://github.com/openfoam-ICL-UC/openfoam_intro_ES/wiki/Instalaci%C3%B3n-de-OpenFOAM)
-* Si su OS es Mac OS X, versión pre-compilada de OpenFOAM en Docker container: [Instrucciones de instalación](https://www.openfoam.com/download/openfoam-installation-on-mac-using-docker)
-* Si su OS es Linux, no es necesario instalar máquinas virtuales.
-* ParaView > 5.0: Se debe instalar en Windows Subsystem for Linux o Linux: [Instrucciones de instalación]()
+* Si su OS es macOS, versión pre-compilada de OpenFOAM en Docker container: [Instrucciones de instalación]([https://www.openfoam.com/download/openfoam-installation-on-mac-using-docker](https://github.com/openfoam-ICL-UC/openfoam_intro_ES/wiki/Instalaci%C3%B3n-de-OpenFOAM))
+* Si su OS es Linux, no es necesario instalar máquinas virtuales o Docker.
+* ParaView > 5.0: Se debe instalar en Windows Subsystem for Linux o macOS o Linux: [Instrucciones de instalación](https://github.com/openfoam-ICL-UC/openfoam_intro_ES/wiki/Instalaci%C3%B3n-de-OpenFOAM)
 
 Este taller tiene dos sesiones con dos partes cada una. Los objetivos de aprendizaje de cada parte de este taller son:
 
 #### Sesión 1 Parte 1: Introducción al método de volúmenes finitos
-1. Convertir un modelo matemático continuo a un modelo numérico discreto.
+1. Convertir un modelo matemático continuo a un modelo numérico discreto para un problema de transferencia de calor unidimensional no estacionaria.
 2. Discretizar ecuaciones diferenciales parciales mediante el método de volúmenes finitos.
-3. Comparar algoritmos de solución de sistemas de ecuaciones lineales.
+3. Implementar algoritmo de solución en Python y comparar discretizacio4n y algoritmos para sistemas de ecuaciones lineales.
 
 #### Sesión 1, Parte 2: Implementación de la solución numérica a un problema de fenómenos de transporte en OpenFOAM
 1. Configurar un caso de OpenFOAM representativo de la transferencia de calor tridimensional no estacionaria en un sistema de flujo de fluidos.
