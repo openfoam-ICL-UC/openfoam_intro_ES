@@ -42,6 +42,8 @@ Este taller tiene dos sesiones con dos partes cada una. Los objetivos de aprendi
 2. Analizar un caso de transferencia de calor y masa multifásico.
 3. Diseñar un plan de estudio y aprendizaje autónomo basado a sus necesidades de aprendizaje.
 
+La documentación asociada a cada sesión puedes encontrarle en [Wikis](https://github.com/openfoam-ICL-UC/openfoam_intro_ES/wiki)
+
 ## Autores:
 Catalina Pino Muñoz, Research Associate, Earth Science and Engineering Department, Imperial College London
 
