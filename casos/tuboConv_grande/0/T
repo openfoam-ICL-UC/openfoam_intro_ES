@@ -46,7 +46,7 @@ boundaryField
         code
         #{
             // Accedemos a la malla para obtener el espaciamiento de la pared
-            const fvMesh& mesh = patch().boundaryMesh().mesh();
+            // const fvMesh& mesh = patch().boundaryMesh().mesh();
 
             // Accedemos al diccionario con las propiedades termofísicas
             const auto transport = this->db().objectRegistry::lookupObject<IOdictionary>("transportProperties");
