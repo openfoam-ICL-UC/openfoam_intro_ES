@@ -1,7 +1,7 @@
 /*--------------------------------*- C++ -*----------------------------------*\
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  2306                                  |
+|  \\    /   O peration     | Version:  v2306                                 |
 |   \\  /    A nd           | Website:  www.openfoam.com                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
@@ -9,40 +9,42 @@ FoamFile
 {
     version     2.0;
     format      ascii;
-    arch        "LSB;label=32;scalar=64";
-    class       volScalarField;
-    location    "0";
-    object      T;
+    class       dictionary;
+    object      thermophysicalProperties.liquid;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [0 0 0 1 0 0 0];
-
-internalField   uniform 70;
-
-boundaryField
+thermoType
 {
-    inlet
-    {
-        type            fixedValue;
-        value           uniform 70;
-    }
-    outlet
-    {
-        type            zeroGradient;
-    }
-    walls
-    {
-        type            mixed;
-        refValue        uniform 298.15;
-        refGradient     uniform 0;
-        
-        // k laminar
-        // valueFraction   uniform 0.137;
+    type            heRhoThermo;
+    mixture         pureMixture;
+    transport       const;
+    thermo          hConst;
+    equationOfState rhoConst;
+    specie          specie;
+    energy          sensibleEnthalpy;
+}
 
-        // Aproximación utilizando conductividad
-        // térmica turbulenta igual a 0.9 W/mK
-        valueFraction   uniform 0.0239;
+mixture
+{
+    specie
+    {
+        nMoles          1;
+        molWeight       18.9;
+    }
+    equationOfState
+    {
+        rho             1000;
+    }
+    thermodynamics
+    {
+        Cp              4181;
+        Hf              -2.45e6; //[J/Kg]
+    }
+    transport
+    {
+        mu              959e-6;
+        Pr              6.62;
     }
 }
 

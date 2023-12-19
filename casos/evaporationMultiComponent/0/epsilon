@@ -1,7 +1,7 @@
 /*--------------------------------*- C++ -*----------------------------------*\
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  2306                                  |
+|  \\    /   O peration     | Version:  v2306                                 |
 |   \\  /    A nd           | Website:  www.openfoam.com                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
@@ -9,40 +9,45 @@ FoamFile
 {
     version     2.0;
     format      ascii;
-    arch        "LSB;label=32;scalar=64";
     class       volScalarField;
-    location    "0";
-    object      T;
+    object      epsilon;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [0 0 0 1 0 0 0];
+dimensions      [0 2 -3 0 0 0 0];
 
-internalField   uniform 70;
+internalField   uniform 1e-3;
 
 boundaryField
 {
-    inlet
+    bottom
     {
-        type            fixedValue;
-        value           uniform 70;
+        type            epsilonWallFunction;
+        value           $internalField;
     }
-    outlet
-    {
-        type            zeroGradient;
-    }
-    walls
-    {
-        type            mixed;
-        refValue        uniform 298.15;
-        refGradient     uniform 0;
-        
-        // k laminar
-        // valueFraction   uniform 0.137;
 
-        // Aproximación utilizando conductividad
-        // térmica turbulenta igual a 0.9 W/mK
-        valueFraction   uniform 0.0239;
+    top
+    {
+        type            inletOutlet;
+        inletValue      $internalField;
+        value           $internalField;
+    }
+
+    left
+    {
+        type            epsilonWallFunction;
+        value           $internalField;
+    }
+
+    right
+    {
+        type            epsilonWallFunction;
+        value           $internalField;
+    }
+
+    frontAndBack
+    {
+        type            empty;
     }
 }
 
