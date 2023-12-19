@@ -1,0 +1,42 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2006                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    object      p_rgh;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 2 -2 0 0 0 0];
+
+internalField   uniform 0;
+
+boundaryField
+{
+    inlet
+    {
+        // Las CB de presión se calculan a partir de las CB de velocidad
+        type            fixedFluxPressure;
+    }
+
+    outlet
+    {
+        // Las CB de presión se calculan a partir de las CB de velocidad
+        type            fixedFluxPressure;
+    }
+
+    wall
+    {
+        // Las CB de presión se calculan a partir de las CB de velocidad
+        type            fixedFluxPressure;
+    }
+}
+
+// ************************************************************************* //
