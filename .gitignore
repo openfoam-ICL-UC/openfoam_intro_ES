@@ -17,3 +17,6 @@ processor*/
 # Ignore simulation logs
 *.log
 log.*
+
+# Do not ignore .orig files
+!*.orig
