@@ -3,9 +3,18 @@ cd "${0%/*}" || exit                                # Run from this directory
 . ${WM_PROJECT_DIR:?}/bin/tools/RunFunctions        # Tutorial run functions
 #------------------------------------------------------------------------------
 
+# Genera la grilla computacional
+# Nota: es necesario primero crear el archivo system/blockMeshDict
+# En el repositorio, viene una tubería por defecto.
+# Si se desea modificar las dimensiones de la tubería, es necesario
+# modificar el archivo blockMeshDict.m4 ubicado en la carpeta system
+# y luego desde la carpeta system ejecutar 
+#
+# m4 blockMeshDict.m4 > blockMeshDict
+# Posteriormente, ejecutar blockMesh desde el directorio raiz del caso
 runApplication blockMesh
-\cp 0/T.orig 0/T
-runApplication setFields
+
+# Ejecuta la aplicación especificada en system/controlDict
 runApplication $(getApplication)
 
 #------------------------------------------------------------------------------
