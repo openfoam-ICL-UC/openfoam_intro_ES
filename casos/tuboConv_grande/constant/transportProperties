@@ -17,35 +17,35 @@ FoamFile
 
 transportModel Newtonian;
 
-// Laminar viscosity
-nu              1e-6; // Pa * s;
+// Viscosidad cinemática
+nu              2.62e-7; // m^2 / s
 
-// Thermal expansion coefficient
+// Coeficiente de expansión térmica
 beta            0;
 
-// Reference temperature
+// Temperatura de referencia
 TRef            70;
 
-// Laminar Prandtl number
+// Número de Prandtl laminar
 Pr              2.783;
 
-// Turbulent Prandtl number
+// Número de Prandtl turbulento
 Prt             0.85;
 
-// Additional parameters
+// Parámetros adicionales
 
-// Thermal conductivity / W/m/K
+// Conductividad térmica / W/m/K
 k               0.160;
 
-// Convection coefficient / W / m^2 / K 
+// Coeficiente de convección / W / m^2 / K 
 h               25;   
 
 // Temperatura de los alrededores / K
 T_inf           298.15;
 
-// Liquid density / kg / m^3
-// const scalar rho = 1000; 
+// Densidad de líquido / kg / m^3
+// rho = 838; 
 
-// Specific heat capacity / J / kg / K
-// const scalar cp = 4180;
+// Çalor específico por unidad de masa/ J / kg / K
+// cp = 2014;
 // ************************************************************************* //
