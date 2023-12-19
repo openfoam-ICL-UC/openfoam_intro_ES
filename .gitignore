@@ -16,3 +16,4 @@ processor*/
 !0/
 # Ignore simulation logs
 *.log
+log.*
