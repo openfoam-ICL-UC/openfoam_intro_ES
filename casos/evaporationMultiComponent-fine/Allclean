@@ -1,0 +1,21 @@
+#!/bin/sh
+cd "${0%/*}" || exit                                # Run from this directory
+. ${WM_PROJECT_DIR:?}/bin/tools/CleanFunctions      # Tutorial clean functions
+#------------------------------------------------------------------------------
+
+
+# Elimina todos los directorios excepto 0/
+rm -r [0-9].[0-9]*
+rm -r [1-9]*
+
+# Elimina todas las carpetas asociadas a la descomposición
+# paralela
+rm -r proc*
+
+# Remueve archivos de postProcesamiento con cantidades de interés ingenierl
+rm -r postProcessing
+rm -r logs
+rm log.*
+#
+
+#------------------------------------------------------------------------------
