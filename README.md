@@ -38,11 +38,11 @@ Este taller tiene dos sesiones con dos partes cada una. Los objetivos de aprendi
 3. Comparar los resultados del modelo de OpenFOAM con los resultados obtenidos en Python.
 
 #### Sesión 2, Parte 2: Ejemplos y solvers avanzados de OpenFOAM para fenómenos de transporte acoplados
-1. Analizar un caso de convección natural con y sin la aproximación de Boussinesq.
-2. Analizar un caso de transferencia de calor y masa multifásico.
-3. Diseñar un plan de estudio y aprendizaje autónomo basado a sus necesidades de aprendizaje.
+1. Analizar la implementación de las ecuaciones de conservación de calor, masa y cantidad de movimiento para el solver `icoReactingMultiphaseInterFoam`.
+2. Reproducir un tutorial de OpenFOAM de evaporación de agua en aire, donde la transferencia de calor y masa están acopladas.
+3. Post-procesar un caso multifásico de OpenFOAM.
 
-La documentación asociada a cada sesión puedes encontrarle en [Wikis](https://github.com/openfoam-ICL-UC/openfoam_intro_ES/wiki)
+La documentación asociada a cada sesión puedes encontrarla en [Wikis](https://github.com/openfoam-ICL-UC/openfoam_intro_ES/wiki)
 
 ## Autores:
 Catalina Pino Muñoz, Research Associate, Earth Science and Engineering Department, Imperial College London
