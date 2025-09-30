@@ -25,7 +25,7 @@ Este taller tiene dos sesiones con dos partes cada una. Los objetivos de aprendi
 #### Sesión 1 Parte 1: Introducción al método de volúmenes finitos
 1. Convertir un modelo matemático continuo a un modelo numérico discreto para un problema de transferencia de calor unidimensional no estacionaria.
 2. Discretizar ecuaciones diferenciales parciales mediante el método de volúmenes finitos.
-3. Implementar algoritmo de solución en Python y comparar discretizacio4n y algoritmos para sistemas de ecuaciones lineales.
+3. Implementar algoritmo de solución en Python y comparar discretización y algoritmos para sistemas de ecuaciones lineales.
 
 #### Sesión 1, Parte 2: Implementación de la solución numérica a un problema de fenómenos de transporte en OpenFOAM
 1. Configurar un caso de OpenFOAM representativo de la transferencia de calor tridimensional no estacionaria en un sistema de flujo de fluidos.
