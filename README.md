@@ -14,7 +14,7 @@ Los siguientes conocimientos previos facilitarán de enorme manera tu ruta de ap
 Los siguientes requerimientos computacionales son **absolutamente necesarios** para iniciar el taller.
 Al iniciar el taller, es necesario instalar los siguientes software:
 
-* OpenFOAM v2306: [Instrucciones de instalación]()
+* OpenFOAM v2512
 * Si su OS es Windows, Windows Subsystem for Linux 2 (WSL 2): [Instrucciones de instalación](https://github.com/openfoam-ICL-UC/openfoam_intro_ES/wiki/Instalaci%C3%B3n-de-OpenFOAM)
 * Si su OS es macOS, versión pre-compilada de OpenFOAM en Docker container: [Instrucciones de instalación](https://github.com/openfoam-ICL-UC/openfoam_intro_ES/wiki/Instalaci%C3%B3n-de-OpenFOAM)
 * Si su OS es Linux, no es necesario instalar máquinas virtuales o Docker.
